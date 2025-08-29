@@ -1,0 +1,8 @@
+Sub AddSheets01()
+
+    'we add sheet A after the sheet n°1 in the workbook
+    Sheets.Add(after:=Sheets(1)).Name = "Sheet A"
+    Sheets.Add(after:=Sheets(2)).Name = "Sheet A"
+    
+
+End Sub
