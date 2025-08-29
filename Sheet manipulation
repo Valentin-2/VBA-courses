@@ -3,6 +3,43 @@ Sub AddSheets01()
     'we add sheet A after the sheet n°1 in the workbook
     Sheets.Add(after:=Sheets(1)).Name = "Sheet A"
     Sheets.Add(after:=Sheets(2)).Name = "Sheet A"
+
+
+'-----------------------------------------------------
+
+
+Sub AddSheets02()
     
+    Dim vSheetsPlus As Integer
+        vsheetplus = InputBox("How many sheet do you want to add ?")
+
+    Dim vSheetNumb As Integer
+    
+    For vSheetNumb = 1 To vsheetplus
+        Sheets.Add(after:=Worksheets(Worksheets.Count)).Name = "Sheet " & vSheetNumb
+    Next
+    
+    Sheets.Add(after:=Sheets(vSheetNumb)).Name = "Reporting"
+    
+    
+
+End Sub
+'-----------------------------------------------------
+
+Sub AddSheets03()
+
+    Dim vSheetMinus As Worksheet
+    
+    Application.DisplayAlerts = False 'no warning before deleting sheets
+    
+    For Each vSheetMinus In Application.ActiveWorkbook.Worksheets
+        If vSheetMinus.Name <> "Customers" Then vSheetMinus.Delete
+    
+    Next
+    
+    Application.DisplayAlerts = True
+
+End Sub
+
 
 End Sub
