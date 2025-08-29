@@ -73,3 +73,211 @@ Sub Addsheets05()
     
     
 End Sub
+'--------------------------------------------------------------------
+'--------------------------------------------------------------------
+
+Sub GameA()
+
+    MsgBox "Pick up a number between 1 and 31" & vbCr & "I'll need less than 5 trials to guess it." & vbCr & "Are you ready to play?", vbOKOnly, "GAME STARTS"
+    
+
+End Sub
+
+Sub GameB()
+
+    Dim vMaxTrials As Variant
+    Dim vLowerbound As Variant
+    Dim vUpperbound As Variant
+    
+    vMaxTrials = 5
+    vLowerbound = 1
+    vUpperbound = 2 ^ vMaxTrials - 1
+    
+    
+     MsgBox "Pick up a number between " & vLowerbound & " and " & vUpperbound & vbCr & "I'll need less than " & vMaxTrials & " trials to guess it." & vbCr & "Are you ready to play?", vbOKOnly, "GAME STARTS"
+    
+    
+End Sub
+
+Sub GameC()
+
+    Dim vMaxTrials As Variant
+    Dim vLowerbound As Variant
+    Dim vUpperbound As Variant
+    Dim vGuess As Variant
+    
+    
+    vMaxTrials = 5
+    vLowerbound = 1
+    vUpperbound = 2 ^ vMaxTrials - 1
+    
+    
+    MsgBox "Pick up a number between " & vLowerbound & " and " & vUpperbound & vbCr & "I'll need less than " & vMaxTrials & " trials to guess it." & vbCr & "Are you ready to play?", vbOKOnly, "GAME STARTS"
+    
+    
+    'first guess
+    vGuess = (vLowerbound + vUpperbound) / 2
+    InputBox "My guess is " & vGuess & vbCr & vbCr & "Is your number : " & vbCr & "Greater (+), smaller(-) or equal (=)?"
+    
+    
+End Sub
+
+Sub GameD()
+
+    Dim vMaxTrials As Variant
+    Dim vLowerbound As Variant
+    Dim vUpperbound As Variant
+    Dim vGuess As Variant
+    Dim vCountTrials As Integer
+    Dim vChoice As String
+    Dim vquit As Boolean
+    
+    ' variable initialization
+    vMaxTrials = 5
+    vLowerbound = 1
+    vUpperbound = 2 ^ vMaxTrials - 1
+    vCountTrials = 0
+    
+    'game presentation
+    MsgBox "Pick up a number between " & vLowerbound & " and " & vUpperbound & vbCr & "I'll need less than " & vMaxTrials & " trials to guess it." & vbCr & "Are you ready to play?", vbOKOnly, "GAME STARTS"
+    
+    vCountTrials = 1
+    vGuess = (vLowerbound + vUpperbound) / 2
+
+    
+    vChoice = InputBox("My guess is " & vGuess & vbCr & vbCr & "Is your number : " & vbCr & "Greater (+), smaller(-) or equal (=)?")
+    
+    
+    If vChoice = "+" Then
+        vLowerbound = vGuess + 1
+        MsgBox "I will now try between " & vLowerbound & " and " & vUpperbound
+    
+    ElseIf vChoice = "-" Then
+        vUpperbound = vGuess - 1
+        MsgBox "I will now try between " & vLowerbound & " and " & vUpperbound
+    ElseIf vChoice = "=" Then
+        MsgBox "I guessed your number in " & vCountTrials & " rounds"
+    
+    Else 'cas the user want to escape game
+        MsgBox "Do you want to continue ?", vbYesNo
+        If vquit = vbNo Then
+            Exit Sub
+        End If
+        
+    End If
+    
+        
+End Sub
+
+Sub GameD()
+
+    Dim vMaxTrials As Variant
+    Dim vLowerbound As Variant
+    Dim vUpperbound As Variant
+    Dim vGuess As Variant
+    Dim vCountTrials As Integer
+    Dim vChoice As String
+    Dim vquit As Boolean
+    
+    ' variable initialization
+    vMaxTrials = 5
+    vLowerbound = 1
+    vUpperbound = 2 ^ vMaxTrials - 1
+    vCountTrials = 0
+    
+    'game presentation
+    MsgBox "Pick up a number between " & vLowerbound & " and " & vUpperbound & vbCr & "I'll need less than " & vMaxTrials & " trials to guess it." & vbCr & "Are you ready to play?", vbOKOnly, "GAME STARTS"
+    
+    vCountTrials = 1
+    vGuess = (vLowerbound + vUpperbound) / 2
+
+    
+    vChoice = InputBox("My guess is " & vGuess & vbCr & vbCr & "Is your number : " & vbCr & "Greater (+), smaller(-) or equal (=)?")
+    
+    
+    If vChoice = "+" Then
+        vLowerbound = vGuess + 1
+        MsgBox "I will now try between " & vLowerbound & " and " & vUpperbound
+    
+    ElseIf vChoice = "-" Then
+        vUpperbound = vGuess - 1
+        MsgBox "I will now try between " & vLowerbound & " and " & vUpperbound
+    ElseIf vChoice = "=" Then
+        MsgBox "I guessed your number in " & vCountTrials & " rounds"
+    
+    Else 'cas the user want to escape game
+        MsgBox "Do you want to continue ?", vbYesNo
+        If vquit = vbNo Then
+            Exit Sub
+        End If
+        
+    End If
+    
+
+    
+End Sub
+
+Sub GameE()
+
+    'clean cells
+    If Range("A2") = Empty Then
+        Range("A2").Select
+    Else
+        Range("A1").End(xlToRight).End(xlDown).Offset(1, 0).Select
+        Selection.ClearContents
+    End If
+    
+    
+    'variable declaration
+    Dim vMaxTrials As Variant
+    Dim vLowerbound As Variant
+    Dim vUpperbound As Variant
+    Dim vGuess As Variant
+    Dim vCountTrials As Integer
+    Dim vChoice As String
+    Dim vquit As Boolean
+    
+    ' variable initialization
+    vMaxTrials = 5
+    vLowerbound = 1
+    vUpperbound = 2 ^ vMaxTrials - 1
+    vCountTrials = 0
+    
+
+    
+    
+    
+    
+    
+    'game presentation
+    MsgBox "Pick up a number between " & vLowerbound & " and " & vUpperbound & vbCr & "I'll need less than " & vMaxTrials & " trials to guess it." & vbCr & "Are you ready to play?", vbOKOnly, "GAME STARTS"
+    
+    vCountTrials = 1
+    vGuess = (vLowerbound + vUpperbound) / 2
+
+    
+    vChoice = InputBox("My guess is " & vGuess & vbCr & vbCr & "Is your number : " & vbCr & "Greater (+), smaller(-) or equal (=)?")
+    
+    
+    If vChoice = "+" Then
+        vLowerbound = vGuess + 1
+        MsgBox "I will now try between " & vLowerbound & " and " & vUpperbound
+    
+    ElseIf vChoice = "-" Then
+        vUpperbound = vGuess - 1
+        MsgBox "I will now try between " & vLowerbound & " and " & vUpperbound
+    ElseIf vChoice = "=" Then
+        MsgBox "I guessed your number in " & vCountTrials & " rounds"
+    
+    Else 'case the user want to escape game
+        MsgBox "Do you want to continue ?", vbYesNo
+        If vquit = vbNo Then
+            Exit Sub
+        End If
+        
+    End If
+    
+
+    
+End Sub
+
