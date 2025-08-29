@@ -41,5 +41,35 @@ Sub AddSheets03()
 
 End Sub
 
+'-----------------------------------------------------
 
+Sub Addsheets05()
+
+    Dim vNumber As Integer
+    
+    Range("B4").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    ActiveWorkbook.Worksheets("Customers").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Customers").Sort.SortFields.Add2 Key:=Range("B4:B8"), SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("Customers").Sort
+        .SetRange Range("B4:B8")
+        .Header = xlNo
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+    
+    
+    For vNumber = 1 To Sheets("Customers").Range("C1")
+        Sheets.Add(after:=Worksheets(Worksheets.count)).Name = Cells(3 + vNumber, 2)
+        Sheets("Customers").Select
+        
+    Next
+    
+    Sheets.Add(after:=Worksheets(Worksheets.count)).Name = "Reporting"
+    Sheets("Customers").Select
+    
+    
 End Sub
